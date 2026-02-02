@@ -1,4 +1,3 @@
-import { $Enums } from '@prisma/client';
 import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateUserDto {
@@ -12,7 +11,7 @@ export class CreateUserDto {
 
   @IsNotEmpty()
   @IsString()
-  role: $Enums.UserRole;
+  role: string;
 
   @IsNotEmpty()
   @IsString()
