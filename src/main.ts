@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -12,6 +13,16 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
+  const config = new DocumentBuilder()
+    .setTitle('JobSeeker')
+    .setDescription('BackEnd System for JobSeeker Application')
+    .setVersion('1.2')
+    .addBearerAuth()
+    .build();
+
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('libraryApp', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
 }
