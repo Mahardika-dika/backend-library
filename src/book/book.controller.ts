@@ -15,27 +15,27 @@ import { UpdateBookDto } from './dto/update-book.dto';
 export class BookController {
   constructor(private readonly bookService: BookService) {}
 
-  @Post()
+  @Post('createBook')
   async create(@Body() createBookDto: CreateBookDto) {
     return await this.bookService.create(createBookDto);
   }
 
-  @Get()
+  @Get('bookInfo')
   async findAll() {
     return await this.bookService.findAll();
   }
 
-  @Get(':id')
+  @Get('specificBookInfo/:id')
   async findOne(@Param('id') id: string) {
     return await this.bookService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateBook/:id')
   async update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
     return await this.bookService.update(+id, updateBookDto);
   }
 
-  @Delete(':id')
+  @Delete('removeBook/:id')
   async remove(@Param('id') id: string) {
     return await this.bookService.remove(+id);
   }

@@ -12,17 +12,17 @@ export class PeminjamanController {
     return this.peminjamanService.borrow(createPeminjamanDto);
   }
 
-  @Get('borrow')
+  @Get('borrowInfo')
   borrowHistory() {
     return this.peminjamanService.borrowHistory();
   }
 
-  @Get('borrow/:id')
+  @Get('borrowSpecificInfo/:id')
   borrowHistorySpecific(@Param('id') id: string) {
     return this.peminjamanService.borrowHistorySpecific(+id);
   }
 
-  @Patch('borrow/:id')
+  @Patch('borrowUpdate/:id')
   updateBorrow(
     @Param('id') id: string,
     @Body() updatePeminjamanDto: UpdatePeminjamanDto,
@@ -34,17 +34,17 @@ export class PeminjamanController {
     return this.peminjamanService.returnBook(createPeminjamanDto);
   }
 
-  @Get('returnBook')
+  @Get('returnBookInfo')
   returnBookHistory() {
     return this.peminjamanService.returnBookHistory();
   }
 
-  @Get('returnBook/:id')
+  @Get('returnBookSpecificInfo/:id')
   returnBookHistorySpecific(@Param('id') id: string) {
     return this.peminjamanService.returnBookHistorySpecific(+id);
   }
 
-  @Patch('returnBook/:id')
+  @Patch('returnBookUpdate/:id')
   updateReturnBook(
     @Param('id') id: string,
     @Body() updatePeminjamanDto: UpdatePeminjamanDto,

@@ -15,22 +15,22 @@ import { UpdateMemberDto } from './dto/update-member.dto';
 export class MemberController {
   constructor(private readonly memberService: MemberService) {}
 
-  @Post('buatUser')
+  @Post('createMember')
   async create(@Body() createMemberDto: CreateMemberDto) {
     return await this.memberService.create(createMemberDto);
   }
 
-  @Get()
+  @Get('memberInfo')
   async findAll() {
     return await this.memberService.findAll();
   }
 
-  @Get(':id')
+  @Get('specificInfoMember/:id')
   async findOne(@Param('id') id: string) {
     return await this.memberService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('updateMember/:id')
   async update(
     @Param('id') id: string,
     @Body() updateMemberDto: UpdateMemberDto,
@@ -38,7 +38,7 @@ export class MemberController {
     return await this.memberService.update(+id, updateMemberDto);
   }
 
-  @Delete(':id')
+  @Delete('removeMember/:id')
   async remove(@Param('id') id: string) {
     return await this.memberService.remove(+id);
   }

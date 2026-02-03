@@ -6,7 +6,7 @@ import { AuthDto } from './dto/authenticate.dto';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post()
+  @Post('login')
   async authenticate(@Body() createAuthDto: AuthDto) {
     const result = await this.authService.authenticate(createAuthDto);
 
