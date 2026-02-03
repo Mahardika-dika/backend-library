@@ -54,7 +54,9 @@ export class AuthService {
         token,
       };
     } catch (error) {
-      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      if (error instanceof HttpException) {
+        return error;
+      } else if (error instanceof Prisma.PrismaClientKnownRequestError) {
         switch (error.code) {
           case 'P2025':
             throw new HttpException(
