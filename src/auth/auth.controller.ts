@@ -7,7 +7,17 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post()
-  authenticate(@Body() createAuthDto: AuthDto) {
-    return this.authService.authenticate(createAuthDto);
+  async authenticate(@Body() createAuthDto: AuthDto) {
+    const result = await this.authService.authenticate(createAuthDto);
+
+    return {
+      status_login: true,
+      User: {
+        id: result?.id,
+        username: result?.username,
+        role: result?.role,
+      },
+      Token: result?.token,
+    };
   }
 }

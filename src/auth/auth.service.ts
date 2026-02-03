@@ -48,13 +48,13 @@ export class AuthService {
       const token = await this.jwt.signAsync(payload);
 
       return {
-        payload,
+        id: payload.id,
+        username: payload.username,
+        role: payload.role,
         token,
       };
     } catch (error) {
-      if (error instanceof HttpException) {
-        return error;
-      } else if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
         switch (error.code) {
           case 'P2025':
             throw new HttpException(
@@ -71,10 +71,6 @@ export class AuthService {
             );
         }
       }
-      throw new HttpException(
-        { message: 'Error!' },
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
       console.log(error);
     }
   }
