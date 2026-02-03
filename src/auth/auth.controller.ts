@@ -8,16 +8,6 @@ export class AuthController {
 
   @Post('login')
   async authenticate(@Body() createAuthDto: AuthDto) {
-    const result = await this.authService.authenticate(createAuthDto);
-
-    return {
-      status_login: true,
-      User: {
-        id: result?.id,
-        username: result?.username,
-        role: result?.role,
-      },
-      Token: result?.token,
-    };
+    return await this.authService.authenticate(createAuthDto);
   }
 }
