@@ -6,17 +6,17 @@ import { $Enums } from '@prisma/client';
 export class UpdateUserDto extends PartialType(CreateUserDto) {
   @IsOptional()
   @IsString()
-  username?: string;
+  username: string;
 
   @IsOptional()
   @IsString()
-  password?: string;
+  password: string;
 
   @IsOptional()
   @IsEnum($Enums.UserRole)
-  role?: $Enums.UserRole;
+  role: $Enums.UserRole;
 
   @IsOptional()
   @IsString()
-  memberId?: number;
+  memberId: number;
 }
