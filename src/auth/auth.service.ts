@@ -45,7 +45,6 @@ export class AuthService {
         username: find.username,
         role: find.role,
       };
-      console.log(process.env.SECRET_KEY);
       const token = await this.jwt.signAsync(payload);
 
       return {
