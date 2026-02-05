@@ -17,7 +17,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('JobSeeker')
     .setDescription('BackEnd System for JobSeeker Application')
-    .setVersion('1.2')
+    .setVersion('2.3')
     .addBearerAuth()
     .build();
 
