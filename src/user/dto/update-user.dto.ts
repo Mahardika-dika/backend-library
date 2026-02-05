@@ -18,5 +18,5 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
 
   @IsOptional()
   @IsString()
-  memberId: number;
+  memberId?: number;
 }

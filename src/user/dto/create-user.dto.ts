@@ -1,4 +1,4 @@
-import { UserRole } from '@prisma/client';
+import { $Enums } from '@prisma/client';
 import {
   IsEnum,
   IsNotEmpty,
@@ -17,8 +17,8 @@ export class CreateUserDto {
   password: string;
 
   @IsNotEmpty()
-  @IsEnum(UserRole)
-  role: UserRole;
+  @IsEnum($Enums)
+  role: $Enums.UserRole;
 
   @IsOptional()
   @IsNumber()
