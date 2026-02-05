@@ -21,7 +21,6 @@ import { RolesGuard } from './guard/role.guard';
     AuthService,
     PrismaService,
     BcryptService,
-    JwtService,
   ],
 })
 export class AuthModule {}
