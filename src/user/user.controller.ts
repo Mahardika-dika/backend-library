@@ -10,12 +10,13 @@ import {
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { Roles } from 'src/auth/decorators/role.decorator';
 
 @ApiTags('Users')
 @Controller('user')
+@ApiBearerAuth()
 export class UserController {
   constructor(private readonly userService: UserService) {}
 

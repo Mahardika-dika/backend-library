@@ -3,13 +3,13 @@ import { IsNotEmpty, IsString } from 'class-validator';
 export class CreateBookDto {
   @IsNotEmpty()
   @IsString()
-  title: string;
+  title!: string;
 
   @IsNotEmpty()
   @IsString()
-  author: string;
+  author!: string;
 
   @IsNotEmpty()
   @IsString()
-  year: number;
+  year!: number;
 }

@@ -4,15 +4,15 @@ export class CreatePeminjamanDto {
   @IsNotEmpty()
   @IsNumber()
   @Min(1)
-  book_id: number;
+  book_id!: number;
 
   @IsNotEmpty()
   @IsNumber()
   @Min(1)
-  member_id: number;
+  member_id!: number;
 
   @IsNotEmpty()
   @IsNumber()
   @Min(1)
-  borrow_id: number;
+  borrow_id!: number;
 }

@@ -1,20 +1,20 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateUserDto } from './create-user.dto';
 import { IsEnum, IsOptional, IsString } from 'class-validator';
-import { $Enums } from '@prisma/client';
+import { UserRole } from '@prisma/client';
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {
   @IsOptional()
   @IsString()
-  username: string;
+  username!: string;
 
   @IsOptional()
   @IsString()
-  password: string;
+  password!: string;
 
   @IsOptional()
-  @IsEnum($Enums.UserRole)
-  role: $Enums.UserRole;
+  @IsEnum(UserRole)
+  role!: UserRole;
 
   @IsOptional()
   @IsString()
